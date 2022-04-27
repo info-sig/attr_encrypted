@@ -11,6 +11,8 @@ if defined?(Sequel)
     end
   end
 
-  Sequel::Model.extend AttrEncrypted
-  Sequel::Model.extend AttrEncrypted::Adapters::Sequel
+  if defined?(Sequel::Model)
+    Sequel::Model.extend AttrEncrypted
+    Sequel::Model.extend AttrEncrypted::Adapters::Sequel
+  end
 end
